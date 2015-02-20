@@ -1,0 +1,39 @@
+# If you need more than just the "main" content area you can
+# uncomment the snippet below. It will add a "sidebar" area
+# to your pages. You can add as many areas as you like, still
+# only those that are rendered in your TypoScript and Template
+# are visible on your page.
+---
+#'TYPO3.Neos.NodeTypes:Page':
+#  childNodes:
+#    sidebar:
+#      type: 'TYPO3.Neos:ContentCollection'
+
+'Schwartz.WilliTraveling:Entry':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    inlineEditable: TRUE
+    label: 'Entry'
+    inspector:
+      groups:
+        entry:
+          label: 'Entry'
+  properties:
+    photos:
+      type: 'array<TYPO3\Media\Domain\Model\Asset>'
+      reloadIfChanged: TRUE
+      ui:
+        label: 'Photos'
+        inspector:
+          group: 'entry'
+    location:
+      type: string
+      defaultValue: Würzburg, Deutschland
+      reloadIfChanged: TRUE
+      ui:
+        label: Location
+        inspector:
+          group: entry
+  childNodes:
+    description:
+      type: 'TYPO3.Neos:ContentCollection'

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+<html>
+<head>
+	<f:section name="stylesheets">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.5.7/jquery.fullPage.css" />
+		<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'css/site.css', package: 'Schwartz.WilliTraveling')}" />
+		<!-- Put your stylesheet inclusions here, they will be included in your website by TypoScript -->
+	</f:section>
+	<f:section name="headScripts">
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.5.7/jquery.fullPage.min.js"></script>
+		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?&sensor=false"></script>
+		<script type="text/javascript" src="{f:uri.resource(path: 'js/site.js', package: 'Schwartz.WilliTraveling')}"></script>
+
+		<!-- Put your scripts inclusions for the head here, they will be included in your website by TypoScript -->
+	</f:section>
+</head>
+<body>
+<f:section name="body">
+	<div class="main">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Willi, Traveling</a>
+				</div>
+
+				{parts.menu -> f:format.raw()}
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div id="map_canvas"></div>
+		<div class="container">
+			<div id="fullpage">
+				{content.main -> f:format.raw()}
+			</div>
+		</div>
+	</div>
+</f:section>
+<f:section name="bodyScripts">
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script>document.write('<script src="//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</f:section>
+</body>
+</html>

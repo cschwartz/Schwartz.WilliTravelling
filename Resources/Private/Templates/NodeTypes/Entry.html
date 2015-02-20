@@ -1,0 +1,31 @@
+{namespace media=TYPO3\Media\ViewHelpers}
+
+<div class="section" data-location="{location}">
+  <div class="row photos">
+    <div class="col-xs-10 photo">
+      <f:if condition="<f:count>{photos}</f:count>">
+        <f:then>
+        <img src="{f:uri.resource(resource: photos.0.resource)}" />
+        </f:then>
+        <f:else>
+        <img src="{f:uri.resource(package: 'TYPO3.Neos', path: 'Images/dummy-image.png')}" title="Dummy image" alt="Dummy image" />
+        </f:else>
+      </f:if>
+    </div>
+    <div class="col-xs-2 preview">
+      <ul>
+        <f:for each="{photos}" as="photo" iteration="itemIterator">
+           <li>
+             <img src="{f:uri.resource(resource: photo.resource)}" alt="">
+            </li>
+        </f:for>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row description">
+    <div class="col-xs-4 content">
+      {description -> f:format.raw()}
+    </div>
+  </div>
+</div>
